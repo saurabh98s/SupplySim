@@ -1,0 +1,37 @@
+# Calculating skewness for the original and cleaned datasets
+original_skewness = skewness  # Skewness from the original dataset
+cleaned_skewness = cleaned_data[numeric_columns_cleaned].skew()
+
+# Creating a DataFrame to compare skewness
+skewness_comparison = pd.DataFrame({
+    "Original Skewness": original_skewness,
+    "Cleaned Skewness": cleaned_skewness
+}).sort_index()
+
+# Display the comparison
+skewness_comparison
+
+
+                         Original Skewness  Cleaned Skewness
+Availability                      0.021844          0.021844
+Costs                             0.046126          0.046126
+Defect rates                     -0.184306         -0.184306
+Demand Factor                     0.060656          0.060656
+Lead time                        -0.025998               NaN
+Lead times                       -0.025998         -0.025998
+Manufacturing costs              -0.101621         -0.101621
+Manufacturing lead time           0.033651          0.033651
+Number of products sold           0.932620          0.925026
+Order quantities                  0.252895          0.252895
+Price                             0.548178          0.548178
+Production volumes               -0.052939         -0.052939
+Revenue generated                 2.022417         -0.711659
+Shipping costs                    0.947900          0.947900
+Shipping times                    0.175395          0.175395
+Stock levels                      1.071557         -0.051065
+
+The comparison of skewness before and after data treatment shows the following improvements:
+
+Revenue generated: The original skewness (2.02) has significantly decreased to -0.71 after the log transformation, indicating a more normalized distribution.
+Stock levels: The original skewness (1.07) has been reduced to -0.05, making the distribution more symmetric.
+Number of products sold: There is a slight reduction in skewness from 0.93 to 0.92, reflecting a minor improvement.
