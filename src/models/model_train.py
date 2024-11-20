@@ -8,7 +8,7 @@ import mlflow
 import mlflow.sklearn
 
 # Load the cleaned dataset
-data = pd.read_csv('S:/SJSU/DATA_226/group_project/data/raw/cleaned_improved_dataset.csv')
+data = pd.read_csv('S:/SJSU/DATA_226/group_project/data/processed/cleaned_improved_dataset.csv')
 
 # 1. Feature Engineering
 # Include "SKU" in the categorical columns for one-hot encoding
