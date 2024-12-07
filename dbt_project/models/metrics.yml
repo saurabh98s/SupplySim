@@ -1,0 +1,90 @@
+version: 2
+
+metrics:
+  - name: total_products_sold_metric
+    label: "Total Products Sold"
+    description: "Total number of products sold"
+    type: simple
+    type_params:
+      measure:
+        name: total_products_sold
+    meta:
+      semantic_model: monthly_sales_semantic
+
+  - name: average_stock_levels_metric
+    label: "Average Stock Levels"
+    description: "Average stock levels"
+    type: simple
+    type_params:
+      measure:
+        name: average_stock_levels
+    meta:
+      semantic_model: monthly_sales_semantic
+
+  - name: stock_turnover_ratio
+    label: "Stock Turnover Ratio"
+    description: "Ratio of total products sold to average stock levels"
+    type: ratio
+    type_params:
+      numerator:
+        name: total_products_sold_metric
+      denominator:
+        name: average_stock_levels_metric
+    meta:
+      semantic_model: monthly_sales_semantic
+
+  - name: monthly_revenue
+    label: "Monthly Revenue"
+    description: "Total revenue generated monthly"
+    type: simple
+    type_params:
+      measure:
+        name: total_revenue
+    meta:
+      semantic_model: monthly_sales_semantic
+
+  - name: total_costs_metric
+    label: "Total Costs"
+    description: "Total costs incurred"
+    type: simple
+    type_params:
+      measure:
+        name: total_costs
+    meta:
+      semantic_model: monthly_sales_semantic
+
+  - name: total_profit_metric
+    label: "Total Profit"
+    description: "Total profit generated"
+    type: derived
+    type_params:
+      expr: "monthly_revenue - total_costs_metric"
+      metrics:
+        - name: monthly_revenue
+        - name: total_costs_metric
+    meta:
+      semantic_model: monthly_sales_semantic
+
+  - name: gross_margin
+    label: "Gross Margin"
+    description: "Gross margin percentage"
+    type: derived
+    type_params:
+      expr: "(monthly_revenue - total_costs_metric) / monthly_revenue"
+      metrics:
+        - name: monthly_revenue
+        - name: total_costs_metric
+    meta:
+      semantic_model: monthly_sales_semantic
+
+  - name: product_profit_margin
+    label: "Product Profit Margin"
+    description: "Profit margin for each product type"
+    type: derived
+    type_params:
+      expr: "total_profit_metric / monthly_revenue"
+      metrics:
+        - name: total_profit_metric
+        - name: monthly_revenue
+    meta:
+      semantic_model: monthly_sales_semantic

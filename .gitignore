@@ -1,3 +1,6 @@
 group_project/
 .env
 mlruns/
+airflow/
+dbt_project/target
+mlflow/

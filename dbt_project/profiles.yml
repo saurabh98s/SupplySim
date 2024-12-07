@@ -1,0 +1,13 @@
+group_project:
+  outputs:
+    dev:
+      account: VTREECD-SF05286
+      database: DEV
+      password: Czlq5hvu@
+      role: ACCOUNTADMIN
+      schema: RAW_DATA
+      threads: 1
+      type: snowflake
+      user: imsaurabh
+      warehouse: COMPUTE_WH
+  target: dev

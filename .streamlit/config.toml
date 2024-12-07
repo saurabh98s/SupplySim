@@ -1,0 +1,7 @@
+# Streamlit Theme Configuration
+[theme]
+primaryColor = "#FF5733"          # Bright orange
+backgroundColor = "#FFFFFF"       # White background
+secondaryBackgroundColor = "#F5F5F5" # Light grey for sidebar
+textColor = "#333333"             # Dark grey text
+font = "sans serif"               # Clean font style
